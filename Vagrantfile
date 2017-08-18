@@ -2,8 +2,8 @@
 domain = "mycraftproject.dev"
 
 Vagrant.configure("2") do |config|
-	# Create a machine based on Debian Jessie and run setup.sh
-	config.vm.box = "debian/jessie64"
+	# Create a machine based on Debian Stretch and run setup.sh
+	config.vm.box = "debian/stretch64"
 	config.vm.provision :shell, path: "setup.sh"
 
 	config.vm.provider :virtualbox do |v|
@@ -28,5 +28,5 @@ Vagrant.configure("2") do |config|
 	## Sync the conf directory so that setup.sh can update Nginx server configuration
 	config.vm.synced_folder "conf/", "/home/vagrant/conf"
 	## Sync the craft directory
-	config.vm.synced_folder "craft/", "/var/www/craft", :create => true, :group => "www-data", :owner => "www-data", :mount_options => [ "dmode=775", "fmode=774" ]
+	config.vm.synced_folder "craft/", "/var/www/craft", :create => true, :group => "www-data", :owner => "vagrant", :mount_options => [ "dmode=775", "fmode=774" ]
 end

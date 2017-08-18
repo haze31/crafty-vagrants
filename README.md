@@ -19,7 +19,7 @@ $ vagrant plugin install vagrant-vbguest
 ## Technical Stuff
 This is a quick overview of what this Vagrant machine is configured to do. Feel free to modify the `Vagrantfile` and `setup.sh` for your project if needed. They're both commented fairly well.
 
-- Based off of the Debian Jessie box.
+- Based off of the Debian Stretch box.
 - Configured to mimic the lowest configuration for a DigitalOcean droplet. 1 CPU, 512MB RAM.
 - Points your .dev domain to a private IP address of `192.168.50.5` in the hosts file.
 - Syncs the `conf` directory so that `setup.sh` can update Nginx server and database configuration.

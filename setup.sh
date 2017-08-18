@@ -1,15 +1,14 @@
 #!/bin/bash
 
+# Prepare to install software
+apt-get install -y dirmngr gnupg2 software-properties-common
+apt-key adv --recv-keys --keyserver keyserver.ubuntu.com 0xF1656F24C74CD1D8
+add-apt-repository 'deb [arch=amd64] http://nyc2.mirrors.digitalocean.com/mariadb/repo/10.2/debian stretch main'
+
 # Update package list and install software
-apt-get install -y software-properties-common
-add-apt-repository 'deb http://packages.dotdeb.org jessie all'
-wget https://www.dotdeb.org/dotdeb.gpg
-apt-key add dotdeb.gpg
-apt-key adv --recv-keys --keyserver keyserver.ubuntu.com 0xcbcb082a1bb943db
-add-apt-repository 'deb [arch=amd64,i386] http://nyc2.mirrors.digitalocean.com/mariadb/repo/10.1/debian jessie main'
 apt-get update
-debconf-set-selections <<< "mariadb-server-10.1 mysql-server/root_password password craftpwd"
-debconf-set-selections <<< "mariadb-server-10.1 mysql-server/root_password_again password craftpwd"
+debconf-set-selections <<< "mariadb-server-10.2 mysql-server/root_password password craftpwd"
+debconf-set-selections <<< "mariadb-server-10.2 mysql-server/root_password_again password craftpwd"
 apt-get install -y curl mariadb-server nginx php7.0-curl php7.0-fpm php7.0-imagick php7.0-mbstring php7.0-mysql php7.0-xml php7.0-zip
 
 # Create Craft database
@@ -39,7 +38,8 @@ cp /var/www/craft/config/db.php /var/www/craft/config/db-old.php
 cp conf/db.php /var/www/craft/config/db.php
 
 # Assign ownership of craft directory to www-data (Nginx)
-chown -R www-data:www-data /var/www/craft
+usermod -aG www-data vagrant
+chown -R vagrant:www-data /var/www/craft
 
 # Clean up
 rm -rf dotdeb.gpg
