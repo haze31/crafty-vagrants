@@ -40,7 +40,3 @@ cp conf/db.php /var/www/craft/config/db.php
 # Assign ownership of craft directory to www-data (Nginx)
 usermod -aG www-data vagrant
 chown -R vagrant:www-data /var/www/craft
-
-# Clean up
-rm -rf dotdeb.gpg
-rm -rf composer-setup.php
