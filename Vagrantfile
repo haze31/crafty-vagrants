@@ -1,5 +1,5 @@
 # Replace mycraftproject.dev with the domain you want use for your Craft test site
-domain = "mycraftproject.dev"
+domain = "crafty.dev"
 
 Vagrant.configure("2") do |config|
 	# Create a machine based on Debian Stretch and run setup.sh
