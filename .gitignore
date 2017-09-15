@@ -1,3 +1,5 @@
 .DS_Store
 /.vagrant
 /craft/vendor
+/craft/storage/logs
+/craft/storage/runtime
