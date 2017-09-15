@@ -1,0 +1,50 @@
+{
+    "name": "vanmoof/crafty-moltin",
+    "description": "API wrapper for Moltin",
+    "type": "craft-plugin",
+    "version": "1.0.0",
+    "keywords": [
+        "craft",
+        "cms",
+        "craftcms",
+        "craft-plugin",
+        "crafty moltin"
+    ],
+    "support": {
+        "docs": "https://github.com/vanmoof/crafty-moltin/blob/master/README.md",
+        "issues": "https://github.com/vanmoof/crafty-moltin/issues"
+    },
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "VanMoof",
+            "homepage": "https://www.vanmoof.com"
+        }
+    ],
+    "require": {
+        "craftcms/cms": "~3.0.0-beta.23"
+    },
+    "repositories": [
+        {
+            "type": "composer",
+            "url": "https://asset-packagist.org"
+        }
+    ],
+    "autoload": {
+        "psr-4": {
+          "vanmoof\\craftymoltin\\": "src/"
+        }
+    },
+    "extra": {
+        "name": "Crafty Moltin",
+        "handle": "crafty-moltin",
+        "schemaVersion": "1.0.0",
+        "hasCpSettings": true,
+        "hasCpSection": true,
+        "changelogUrl": "https://raw.githubusercontent.com/vanmoof/crafty-moltin/master/CHANGELOG.md",
+        "components": {
+            "craftyMoltinService": "vanmoof\\craftymoltin\\services\\CraftyMoltinService"
+        },
+        "class": "vanmoof\\craftymoltin\\CraftyMoltin"
+    }
+}

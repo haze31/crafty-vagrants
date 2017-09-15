@@ -1,0 +1,25 @@
+{#
+/**
+ * Crafty Moltin plugin for Craft CMS 3.x
+ *
+ * Crafty Moltin Settings.twig
+ *
+ * @author    VanMoof
+ * @copyright Copyright (c) 2017 VanMoof
+ * @link      https://www.vanmoof.com
+ * @package   CraftyMoltin
+ * @since     1.0.0
+ */
+#}
+
+{% import "_includes/forms" as forms %}
+
+{% do view.registerAssetBundle("vanmoofcraftymoltin\\craftymoltin\\assetbundles\\craftymoltin\\CraftyMoltinAsset") %}
+
+{{ forms.textField({
+    label: 'Some Field',
+    instructions: 'Enter some setting here.',
+    id: 'someAttribute',
+    name: 'someAttribute',
+    value: settings['someAttribute']})
+}}
